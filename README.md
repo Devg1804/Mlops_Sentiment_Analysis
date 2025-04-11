@@ -63,8 +63,8 @@ The inference pipeline is all about making predictions effortless! It loads the 
 ## Local Setup 👨🏼‍💻
 1. **Clone the Repository**:
 ```bash
-git clone https://github.com/karthikponna/sentiment_analysis_MLOps.git
-cd sentiment_analysis_MLOps
+git clone https://github.com/Devg1804/Mlops_Sentiment_Analysis.git
+cd Mlops_Sentiment_Analysis
 ```
 
 2. **Set Up a Virtual Environment**:
