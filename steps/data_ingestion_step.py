@@ -28,7 +28,7 @@ def ingest_data(
     
     try:
 
-        data_loader = DataLoader("postgresql://postgres:3333@localhost:5432/NLP")
+        data_loader = DataLoader("postgresql://postgres:Mayankgup18@localhost:5432/customer_review")
         data_loader.load_data(table_name)
         df = data_loader.get_data()
 

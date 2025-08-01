@@ -60,17 +60,17 @@ class ClassificationModelEvaluationStrategy(ModelEvaluationStrategy):
         Confusion_matrix = confusion_matrix(y_test, y_pred)
 
         metrics = {
-            "Accuracy": accuracy,
-            "Precision": precision,
-            "Recall": recall,
-            "F1 Score": F1_score,
-            "ROC AUC": roc_auc,
-            "True Negatives": Confusion_matrix[0][0],
-            "False Positives": Confusion_matrix[0][1],
-            "False Negatives": Confusion_matrix[1][0],
-            "True Positives": Confusion_matrix[1][1],
-
+            "Accuracy": float(accuracy),
+            "Precision": float(precision),
+            "Recall": float(recall),
+            "F1 Score": float(F1_score),
+            "ROC AUC": float(roc_auc),
+            "True Negatives": int(Confusion_matrix[0][0]),
+            "False Positives": int(Confusion_matrix[0][1]),
+            "False Negatives": int(Confusion_matrix[1][0]),
+            "True Positives": int(Confusion_matrix[1][1]),
         }
+
         logging.info(f"Model Evaluation Metrics: {metrics}")
         return metrics
     

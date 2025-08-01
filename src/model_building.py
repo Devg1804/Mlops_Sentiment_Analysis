@@ -45,7 +45,7 @@ class LogisticRegressionStrategy(ModelBuildingStrategy):
         logging.info("Training the Logistic Regression Model.")
         model = LogisticRegression(max_iter=1000)
         model.fit(X_train,y_train)
-        joblib.dump(model, "/home/karthikponna/karthik/sentiment_analysis_mlops_project_1/sentiment_analysis_MLOps/saved_models/logistic.pkl")
+        joblib.dump(model, "C:/Users/Mayank/Desktop/Final Projects/Sentiment-Analysis-MLOps/saved_models/logistic.pkl")
         logging.info("Logistic Regression training completed.")
         return model
     
@@ -76,7 +76,7 @@ class XGBoostStrategy(ModelBuildingStrategy):
             xgb_model = XGBClassifier()
             clf = RandomizedSearchCV(xgb_model, params, cv=5, n_jobs=-1)
             clf.fit(X_train, y_train)
-            joblib.dump(clf, "/home/karthikponna/karthik/sentiment_analysis_mlops_project_1/sentiment_analysis_MLOps/saved_models/xgb_fine_tuned.pkl")
+            joblib.dump(clf, "C:/Users/Mayank/Desktop/Final Projects/Sentiment-Analysis-MLOps/saved_models/xgb_fine_tuned.pkl")
             logging.info("Finished Hyperparameter search for XGBoost.")
             return clf
         
@@ -91,7 +91,7 @@ class XGBoostStrategy(ModelBuildingStrategy):
             )
             
             model.fit(X_train, y_train)
-            joblib.dump(model, "/home/karthikponna/karthik/sentiment_analysis_mlops_project_1/sentiment_analysis_MLOps/saved_models/xgb.pkl")
+            joblib.dump(model, "C:/Users/Mayank/Desktop/Final Projects/Sentiment-Analysis-MLOps/saved_models/xgb.pkl")
             logging.info("Completed training the XGBoost model.")
             return model
         
@@ -118,7 +118,7 @@ class SVCStrategy(ModelBuildingStrategy):
             svm = SVC()
             clf = RandomizedSearchCV(svm, params, cv=5, n_jobs=-1)
             clf.fit(X_train, y_train)
-            joblib.dump(clf, "/home/karthikponna/karthik/sentiment_analysis_mlops_project_1/sentiment_analysis_MLOps/saved_models/svm_fine_tuned.pkl")
+            joblib.dump(clf, "C:/Users/Mayank/Desktop/Final Projects/Sentiment-Analysis-MLOps/saved_models/svm_fine_tuned.pkl")
             logging.info("Finished Hyperparameter search for SVM.")
             return clf
         
@@ -126,7 +126,7 @@ class SVCStrategy(ModelBuildingStrategy):
             logging.info("Started training the SVM model.")
             model = SVC(C=1.0, gamma='scale')
             model.fit(X_train, y_train)
-            joblib.dump(model, "/home/karthikponna/karthik/sentiment_analysis_mlops_project_1/sentiment_analysis_MLOps/saved_models/svm.pkl")
+            joblib.dump(model, "C:/Users/Mayank/Desktop/Final Projects/Sentiment-Analysis-MLOps/saved_models/svm.pkl")
             logging.info("Completed training the SVM model.")
             return model
             
@@ -147,7 +147,7 @@ class NaiveBayesStrategy(ModelBuildingStrategy):
         logging.info("Training the Naive Bayes model.")
         model = MultinomialNB()
         model.fit(X_train, y_train)
-        joblib.dump(model, "/home/karthikponna/karthik/sentiment_analysis_mlops_project_1/sentiment_analysis_MLOps/saved_models/NBayes.pkl")
+        joblib.dump(model, "C:/Users/Mayank/Desktop/Final Projects/Sentiment-Analysis-MLOps/saved_models/NBayes.pkl")
         logging.info("Completed training the Naive Bayes model.")
         return model
     
@@ -168,7 +168,7 @@ class RandomForestStrategy(ModelBuildingStrategy):
         logging.info("Training the Random Forest model.")
         model = RandomForestClassifier()
         model.fit(X_train, y_train)
-        joblib.dump(model, "/home/karthikponna/karthik/sentiment_analysis_mlops_project_1/sentiment_analysis_MLOps/saved_models/rf.pkl")
+        joblib.dump(model, "C:/Users/Mayank/Desktop/Final Projects/Sentiment-Analysis-MLOps/saved_models/rf.pkl")
         logging.info("Completed training the Random Forest model.")
         return model
     

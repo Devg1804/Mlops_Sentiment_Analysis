@@ -1,2 +1,5 @@
 .env
 venv
+streamlit_app.py
+__pycache__
+materializers

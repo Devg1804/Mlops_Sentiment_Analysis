@@ -1,4 +1,5 @@
 import logging
+import joblib
 from typing import Tuple
 import pandas as pd
 from scipy.sparse import csr_matrix
@@ -23,5 +24,9 @@ def vectorization_step(
     vectorizer = TfidfVectorization()
     tf_X_train = vectorizer.fit_transform(X_train["review_text"])
     tf_X_test = vectorizer.transform(X_test["review_text"])
+
+    # ✅ Save vectorizer to file (for Streamlit or inference later)
+    joblib.dump(vectorizer, "vectorizer.pkl")  # you can also use a full path like "artifacts/vectorizer.pkl"
+    logging.info("Vectorizer saved to vectorizer.pkl")
     return tf_X_train, tf_X_test
     

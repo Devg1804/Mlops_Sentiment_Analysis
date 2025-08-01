@@ -3,3 +3,11 @@ numpy
 python-dotenv
 SQLAlchemy
 psycopg2-binary
+zenml
+nltk
+scikit-learn
+matplotlib
+xgboost
+Beautifulsoup4
+joblib
+streamlit

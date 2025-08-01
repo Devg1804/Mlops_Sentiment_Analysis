@@ -4,6 +4,7 @@ import streamlit as st
 from pipelines.deployment_pipeline import prediction_service_loader
 from run_deployment import main as run_main
 from pipelines.utils import get_data_for_test
+import requests
 
 
 def main():
@@ -35,7 +36,7 @@ def main():
             st.write(
                 "No service could be found. The pipeline will be run first to create a service."
             )
-            run_main()
+            
 
             # Process and predict sentiment
         
@@ -43,6 +44,18 @@ def main():
         json_list = json.loads(data)
         input_data = np.array(json_list["data"])
         prediction = service.predict(input_data)
+        prediction_url = service.prediction_url
+        print(f"[predictor] Using prediction URL: {prediction_url}")
+
+        # ✅ Prepare the payload
+        payload = {"instances": input_data.tolist()}  # JSON serializable format
+
+        # ✅ Make REST POST request to MLflow model server
+        response = requests.post(prediction_url, json=payload)
+
+        # ✅ Check for errors
+        response.raise_for_status()
+        prediction = np.array(response.json()["predictions"])
                 
         if isinstance(prediction, np.ndarray):
             prediction = prediction[0]
