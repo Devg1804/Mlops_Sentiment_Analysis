@@ -36,14 +36,14 @@ def main():
         else:
             try:
                 model, vectorizer = load_model_and_vectorizer()
-                vectorized_text = vectorizer.transform([review_text])
+                # vectorized_text = vectorizer.transform([review_text])
                 sentiment = predict_sentiment(review_text, model, vectorizer)
-                probas = model.predict_proba(vectorized_text)[0]
-                confidence = round(np.max(probas) * 100, 2)
+                # probas = model.predict_proba(vectorized_text)[0]
+                # confidence = round(np.max(probas) * 100, 2)
                 
                 result = "😊 Positive" if sentiment == 1 else "😞 Negative"
                 st.success(f"**Sentiment:** {result}")
-                st.info(f"**Confidence:** {confidence}%")
+                # st.info(f"**Confidence:** {confidence}%")
             except Exception as e:
                 st.error(f"Something went wrong during prediction: {str(e)}")
 
